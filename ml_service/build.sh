@@ -11,24 +11,26 @@ echo "========================================="
 echo "Installing Python dependencies..."
 pip install -r requirements.txt
 
-# Install Oracle Instant Client
+# Install Oracle Instant Client (Render-compatible)
 echo "Installing Oracle Instant Client..."
-if [ ! -d "/opt/oracle/instantclient_21_12" ]; then
+if [ ! -d "$HOME/oracle/instantclient_21_12" ]; then
     echo "Downloading Oracle Instant Client..."
     wget -q https://download.oracle.com/otn_software/linux/instantclient/2112000/instantclient-basiclite-linux.x64-21.12.0.0.0dbru.zip -O /tmp/oracle.zip
 
     echo "Extracting Oracle Instant Client..."
-    sudo mkdir -p /opt/oracle
-    sudo unzip -q /tmp/oracle.zip -d /opt/oracle
+    mkdir -p $HOME/oracle
+    unzip -q /tmp/oracle.zip -d $HOME/oracle
 
-    # Set up library path
-    echo "/opt/oracle/instantclient_21_12" | sudo tee /etc/ld.so.conf.d/oracle-instantclient.conf
-    sudo ldconfig
+    # Set up library path for current session
+    export LD_LIBRARY_PATH=$HOME/oracle/instantclient_21_12:$LD_LIBRARY_PATH
 
     echo "✅ Oracle Instant Client installed"
 else
     echo "✅ Oracle Instant Client already installed"
 fi
+
+# Set Oracle library path
+export LD_LIBRARY_PATH=$HOME/oracle/instantclient_21_12:$LD_LIBRARY_PATH
 
 # Create wallet directory
 echo "Creating wallet directory..."

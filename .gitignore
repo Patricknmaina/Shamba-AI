@@ -8,7 +8,6 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
@@ -86,6 +85,9 @@ docs/_build/
 
 # Frontend
 frontend/node_modules
+
+# Allow dist directory to be committed
+# !frontend/dist/
 
 # setup files
 ml_service/install_system_deps.sh

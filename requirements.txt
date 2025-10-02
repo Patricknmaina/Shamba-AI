@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+faiss-cpu
+pymupdf
+openai
+python-dotenv
+numpy
+pydantic
+httpx
+python-multipart
+prophet
+pandas
+scipy
+requests
+scikit-learn
+xgboost
+plotly

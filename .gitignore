@@ -1,0 +1,104 @@
+# .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+ml_service/test_insights.py
+ml_service/diagnose.py
+ml_service/test_ml_soil_predictions.py
+ml_service/update_env.py
+ml_service/tools/
+ml_service/tests/
+ml_service/app/embeddings_alt.py
+ml_service/app/soil_ml_model.py
+ml_service/app/soil_service.py
+ml_service/app/translate_simple.py
+ml_service/app/translate.py
+
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+.env.backup
+.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Data
+ml_service/data/faiss.index
+ml_service/data/chunks_metadata.json
+ml_service/data/embeddings.npy
+
+# Wallet (DO NOT COMMIT - will use secrets)
+*.sso
+*.p12
+*.pem
+sqlnet.ora
+tnsnames.ora
+ewallet.*
+cwallet.*
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Documentation builds
+docs/_build/
+
+# Frontend
+frontend/node_modules
+
+# setup files
+ml_service/install_system_deps.sh
+
+# markdown files
+ml_service/ENV_SETUP_GUIDE.md
+ml_service/RAG_SYSTEM_GUIDE.md
+ml_service/README.md
+spec_enhanced.md
+
+# data
+ml_service/data/soil_data/
+
+# models
+ml_service/data/models/soil_rf_models.pkl
+ml_service/data/models/model_comparison.csv

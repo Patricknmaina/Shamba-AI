@@ -26,10 +26,10 @@ ml_service/test_ml_soil_predictions.py
 ml_service/update_env.py
 ml_service/tools/
 ml_service/tests/
-ml_service/app/embeddings_alt.py
-ml_service/app/soil_ml_model.py
-ml_service/app/soil_service.py
-ml_service/app/translate_simple.py
+# ml_service/app/embeddings_alt.py
+# ml_service/app/soil_ml_model.py
+# ml_service/app/soil_service.py
+# ml_service/app/translate_simple.py
 ml_service/app/translate.py
 
 

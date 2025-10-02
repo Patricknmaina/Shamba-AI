@@ -3,7 +3,7 @@ services:
     runtime: python
     name: shambaai-ml-service
     region: frankfurt  # or nearest to your Oracle DB (eu-frankfurt-1)
-    buildCommand: pip install -r requirements.txt
+    buildCommand: cd ml_service && ./build.sh
     startCommand: cd ml_service && uvicorn app.main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
@@ -30,3 +30,5 @@ services:
         value: 8000
       - key: DATA_DIR
         value: ./data
+      - key: LD_LIBRARY_PATH
+        value: $HOME/oracle/instantclient_21_12:$LD_LIBRARY_PATH

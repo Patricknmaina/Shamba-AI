@@ -95,6 +95,7 @@ class UserLoggingService {
   private config: LoggingConfig;
   private sessionId: string;
   private userId?: string;
+  private currentPage?: string;
   private pageViewStartTime: number = 0;
   private scrollDepth: number = 0;
   private maxScrollDepth: number = 0;
@@ -270,26 +271,6 @@ class UserLoggingService {
     this.sendLog('error', payload);
   }
 
-  public logFeatureUsage(
-    featureName: string,
-    featureCategory: string,
-    success: boolean = true,
-    timeSpentSeconds?: number
-  ): void {
-    if (!this.config.enabled) return;
-
-    const payload = {
-      featureName,
-      featureCategory,
-      success,
-      timeSpentSeconds,
-      timestamp: new Date().toISOString(),
-      sessionId: this.sessionId,
-      userId: this.userId
-    };
-
-    this.sendLog('feature-usage', payload);
-  }
 
   private updateScrollDepth(): void {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -424,28 +405,6 @@ class UserLoggingService {
 
   public isEnabled(): boolean {
     return this.config.enabled;
-  }
-
-  public logError(error: ErrorLog): void {
-    try {
-      if (!this.config.enabled) return;
-
-      const payload = {
-        errorType: error.errorType,
-        errorMessage: error.errorMessage,
-        errorStack: error.errorStack,
-        errorSource: error.errorSource,
-        pageUrl: window.location.href,
-        userAgent: navigator.userAgent,
-        timestamp: new Date().toISOString(),
-        sessionId: this.sessionId,
-        userId: this.userId
-      };
-
-      this.sendLog('error', payload);
-    } catch (e) {
-      console.warn('Failed to log error:', e);
-    }
   }
 
   public logFeatureUsage(featureName: string, featureCategory: string, success?: boolean, timeSpentSeconds?: number): void {

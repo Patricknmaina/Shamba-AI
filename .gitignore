@@ -61,9 +61,9 @@ Thumbs.db
 logs/
 
 # Data
-ml_service/data/faiss.index
-ml_service/data/chunks_metadata.json
-ml_service/data/embeddings.npy
+# ml_service/data/faiss.index
+# ml_service/data/chunks_metadata.json
+# ml_service/data/embeddings.npy
 
 # Wallet (DO NOT COMMIT - will use secrets)
 *.sso

@@ -16,3 +16,4 @@ scikit-learn
 xgboost
 plotly
 anthropic
+sentence-transformers
